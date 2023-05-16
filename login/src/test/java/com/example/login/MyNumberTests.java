@@ -5,11 +5,11 @@ import static org.junit.Assert.fail;
 
 import java.util.concurrent.TimeUnit;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Ignore;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -18,13 +18,13 @@ public class MyNumberTests {
 
     private MyNumber myNumber;
 
-    @BeforeClass
+    @BeforeAll
     // 在所有方法执行之前执行
     public static void globalInit() {
         System.out.println("init all method...");
     }
 
-    @AfterClass
+    @AfterAll
     // 在所有方法执行之后执行
     public static void globalDestory() {
         System.out.println("destory all method...");
@@ -37,7 +37,7 @@ public class MyNumberTests {
         myNumber = new MyNumber();
     }
 
-    @After
+    @AfterEach
     // 在每个测试方法之后执行
     public void tearDown() {
         System.out.println("end tearDown method---");

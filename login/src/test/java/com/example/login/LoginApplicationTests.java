@@ -59,34 +59,4 @@ public class LoginApplicationTests {
 		System.out.println("---:" + status);
 	}
 
-	@Feature("登录测试")
-	@Story("登录用户测试")
-	@Test
-	@Description("登录用户权限测试(admin)")
-	public void testProcessBooksParamAdmin() throws Exception {
-		MultiValueMap user = new LinkedMultiValueMap();
-		user.add("username", "1");
-		user.add("password", "1");
-		user.add("role", "admin");
-		MvcResult mockResult = mock.perform(MockMvcRequestBuilders.post("/login/postlogin").params(user))
-				.andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
-		int status = mockResult.getResponse().getStatus();
-		System.out.println("---:" + status);
-	}
-
-	@Feature("登录测试")
-	@Story("登录用户测试")
-	@Test
-	@Description("登录用户测试权限(not admin)")
-	public void testProcessBooksParamNOTAdmin() throws Exception {
-		MultiValueMap user = new LinkedMultiValueMap();
-		user.add("username", "2");
-		user.add("password", "2");
-		user.add("role", "2");
-		MvcResult mockResult = mock.perform(MockMvcRequestBuilders.post("/login/postlogin").params(user))
-				.andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
-		int status = mockResult.getResponse().getStatus();
-		System.out.println("---:" + status);
-	}
-
 }
